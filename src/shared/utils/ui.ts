@@ -1,7 +1,9 @@
 export const currentPath = (href: string, pathname: string) => {
-  if (pathname === href) return true;
-
-  if (href === "/admin") return false;
-
-  return pathname.startsWith(href + "/");
+  if (href === "/dashboard") {
+    return pathname === "/dashboard";
+  }
 };
+
+export function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}

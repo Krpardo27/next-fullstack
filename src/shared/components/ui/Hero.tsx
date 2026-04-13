@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative h-[70vh] min-h-125 bg-hero bg-cover bg-center flex items-center justify-center">
+    <section className="relative h-[70vh] min-h-125 bg-[url('/hero.jpg')] bg-cover bg-center flex items-center justify-center">
 
       {/* overlay */}
       <div className="absolute inset-0 bg-black/30" />

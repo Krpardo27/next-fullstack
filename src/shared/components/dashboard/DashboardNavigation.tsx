@@ -12,24 +12,30 @@ export type DashboardLink = {
 };
 const dashboardNavigation: DashboardLink[] = [
   {
-    url: "/admin",
+    url: "/dashboard",
     text: "Dashboard",
     icon: <FiGrid size={18} />,
     exact: true,
     blank: false,
   },
   {
-    url: "/admin/profile",
-    text: "Perfil",
+    url: "/dashboard/communities",
+    text: "Comunidades",
     icon: <FiUser size={18} />,
     blank: false,
   },
-  {
-    url: "/admin/products",
-    text: "Productos",
-    icon: <FiBox size={18} />,
-    blank: false,
-  },
+  // {
+  //   url: "/dashboard/profile",
+  //   text: "Perfil",
+  //   icon: <FiUser size={18} />,
+  //   blank: false,
+  // },
+  // {
+  //   url: "/dashboard/products",
+  //   text: "Productos",
+  //   icon: <FiBox size={18} />,
+  //   blank: false,
+  // },
 ];
 
 export default function DashboardNavigation() {

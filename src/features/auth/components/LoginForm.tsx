@@ -28,7 +28,7 @@ export default function LoginForm() {
 
     if (success) {
       toast.success(success);
-      redirect("/admin")
+      redirect("/dashboard");
     }
   };
 
