@@ -1,12 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `User` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-DROP TABLE "User";
-
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
@@ -18,6 +9,19 @@ CREATE TABLE "users" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "communities" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
+    "description" TEXT,
+    "userId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "communities_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -69,6 +73,15 @@ CREATE TABLE "verifications" (
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "communities_slug_key" ON "communities"("slug");
+
+-- CreateIndex
+CREATE INDEX "communities_userId_idx" ON "communities"("userId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "communities_name_userId_key" ON "communities"("name", "userId");
+
+-- CreateIndex
 CREATE INDEX "sessions_userId_idx" ON "sessions"("userId");
 
 -- CreateIndex
@@ -79,6 +92,9 @@ CREATE INDEX "accounts_userId_idx" ON "accounts"("userId");
 
 -- CreateIndex
 CREATE INDEX "verifications_identifier_idx" ON "verifications"("identifier");
+
+-- AddForeignKey
+ALTER TABLE "communities" ADD CONSTRAINT "communities_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "sessions" ADD CONSTRAINT "sessions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;

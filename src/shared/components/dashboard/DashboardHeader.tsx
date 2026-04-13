@@ -17,8 +17,6 @@ export default function DashboardHeader({
     <header
       className="
         fixed inset-x-0 top-0 z-30 h-16
-        border-b border-gray-200 bg-white/80 backdrop-blur
-        dark:border-white/10 dark:bg-zinc-900/80
         lg:left-64
       "
     >
