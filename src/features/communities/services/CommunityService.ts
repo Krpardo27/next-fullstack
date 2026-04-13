@@ -5,7 +5,7 @@ class CommunityService {
   async createCommunity(input: {
     name: string;
     description?: string;
-    image?: string;
+    image: string;
     userId: string;
   }) {
     const { name, description, image, userId } = input;

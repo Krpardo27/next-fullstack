@@ -4,7 +4,7 @@ class CommunityRepository {
   async create(data: {
     name: string;
     slug: string;
-    image?: string;
+    image: string;
     description?: string;
     userId: string;
   }) {
